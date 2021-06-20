@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form action="/color/red" method="get">
+                    <button type="submit">red</button>
+                </form>
+            </td>
+            <td>
+                <form action="/color/yellow" method="get">
+                    <button type="submit">yellow</button>
+                </form>
+            </td>
+            <td>
+                <form action="/color/green" method="get">
+                    <button type="submit">green</button>
+                </form>
+            </td>
+            <td>
+                <form action="/color/blue" method="get">
+                    <button type="submit">blue</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= data.red %>
+            </td>
+            <td>
+                <%= data.yellow %>
+            </td>
+            <td>
+                <%= data.green %>
+            </td>
+            <td>
+                <%= data.blue %>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
