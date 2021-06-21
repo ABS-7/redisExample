@@ -47,10 +47,11 @@ const server = app.listen(3000, (error) => {
     const client = redis.createClient(redisURL);
     app.set('redisConnectionObject', client);
 
-    client.hmset('colors', {
-        'red': 0,
-        'yellow': 0,
-        'green': 0,
-        'blue': 0
-    });
+    // client.hmset('colors', {
+    //     'red': 0,
+    //     'yellow': 0,
+    //     'green': 0,
+    //     'blue': 0
+    // });
 });
+
