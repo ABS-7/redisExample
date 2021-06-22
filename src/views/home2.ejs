@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        function fun(color) {
+            socket.emit('incCount', color);
+        }
+
+        socket.on('fetchCounts', counts => {
+            const arr = counts.split('/');
+            document.getElementById('redCount').innerHTML = arr[0];
+            document.getElementById('yellowCount').innerHTML = arr[1];
+            document.getElementById('greenCount').innerHTML = arr[2];
+            document.getElementById('blueCount').innerHTML = arr[3];
+        });
+
+        socket.on('fetchUserCounts', counts => {
+            document.getElementById('totalUser').innerHTML = counts;
+        });
+
+        socket.on('getUserID', id => {
+            document.getElementById('heading').innerHTML = id;
+        });
+
+    </script>
+</head>
+
+<body>
+    <h1 id="heading"></h1>
+    Online: <span id="totalUser"></span>
+    <hr>
+    <table>
+        <tr>
+            <td>
+                <button onclick="fun('red')">red</button>
+            </td>
+            <td>
+
+                <button onclick="fun('yellow')">yellow</button>
+
+            </td>
+            <td>
+
+                <button onclick="fun('green')">green</button>
+
+            </td>
+            <td>
+
+                <button onclick="fun('blue')">blue</button>
+
+            </td>
+        </tr>
+        <tr>
+            <td id="redCount">
+
+            </td>
+            <td id="yellowCount">
+
+            </td>
+            <td id="greenCount">
+
+            </td>
+            <td id="blueCount">
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>
